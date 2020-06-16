@@ -2,7 +2,9 @@ package com.sz.library.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.transition.ChangeBounds;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +12,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.sz.library.R;
+import com.sz.library.SearchActivity;
 
 public class BorrowFragment extends Fragment {
     private Activity activity;
@@ -38,13 +43,12 @@ public class BorrowFragment extends Fragment {
         if(view == null){
             view = inflater.inflate(R.layout.borrow_fragment, container, false);
             menu = view.findViewById(R.id.menu);
-            buttonA = view.findViewById(R.id.action_a);
-            buttonB = view.findViewById(R.id.action_b);
+            buttonA = view.findViewById(R.id.action_search);
+            buttonB = view.findViewById(R.id.action_return_back);
             buttonA.setOnClickListener(v->{
-                System.out.println("11111");
+
             });
             buttonB.setOnClickListener(v->{
-                System.out.println("22222");
             });
 
         }
