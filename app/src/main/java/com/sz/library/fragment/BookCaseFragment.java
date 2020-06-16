@@ -50,7 +50,7 @@ public class BookCaseFragment extends Fragment {
 //            list.add(R.drawable.portrait);
 //            BookCaseViewAdapter adapter = new BookCaseViewAdapter(this.getContext(),list);
 //            viewPager.setAdapter(adapter);
-//            viewPager.setPageTransformer(false,new ScaleTransformer());
+//            viewPager.setPageTransformer(false,new ScaleTransformer());111
             List<Integer> list = new ArrayList<>();
             list.add(R.drawable.portrait);
             list.add(R.drawable.portrait);
