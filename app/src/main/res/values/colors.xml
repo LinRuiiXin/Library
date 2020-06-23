@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#fff</color>
     <color name="white_pressed">#888888</color>
+    <color name="trans">#00FFFFFF</color>
 </resources>
