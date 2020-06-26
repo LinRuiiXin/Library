@@ -75,9 +75,9 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }else if (md5Psw.equals(readPsw(userName))){
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                    saveLoginStatus(true,userName);
+                    saveLoginStatus(userName);
                     Intent intent= new Intent(LoginActivity.this,MainActivity.class);
-                    intent.putExtra("isLogin",true);
+//                    intent.putExtra("isLogin",true);
                     startActivity(intent);
                     LoginActivity.this.finish();
                     return;
@@ -88,6 +88,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void saveLoginStatus(String userName){
+        List<User> users = DataSupport.where("name=?", userName).find(User.class);
+        User user = users.get(0);
+        SharedPreferences loginData = getSharedPreferences("loginData", MODE_PRIVATE);
+        SharedPreferences.Editor edit = loginData.edit();
+        edit.putInt("signInUserId",user.getId());
+    }
+
 
     private void saveLoginStatus(boolean status, String userName) {
         SharedPreferences sp = getSharedPreferences("loginData",MODE_PRIVATE);

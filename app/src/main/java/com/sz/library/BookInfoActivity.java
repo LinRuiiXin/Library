@@ -20,6 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sz.library.pojo.Book;
 import com.sz.library.pojo.Borrow;
 import com.sz.library.utils.SystemUtils;
+import com.sz.library.utils.UserUtils;
 
 import org.litepal.crud.DataSupport;
 
@@ -89,21 +90,23 @@ public class BookInfoActivity extends AppCompatActivity {
 
     private View.OnClickListener borrowListener() {
         return v -> {
-            int userId = 0;
-            List<Borrow> borrows = DataSupport.where("isReturnBack = ? and userId = ?", String.valueOf(0), String.valueOf(userId)).find(Borrow.class);
-            if(borrows.size() == 0){
-                Intent intent = new Intent(BookInfoActivity.this, BorrowActivity.class);
-                intent.putExtra("book",book);
-                startActivity(intent);
-            }else{
-                Toast.makeText(BookInfoActivity.this,"您还未归还此书",Toast.LENGTH_SHORT).show();
+            int userId = UserUtils.getLoginId(this);
+            if(userId != -1){
+                List<Borrow> borrows = DataSupport.where("isReturnBack = ? and userId = ?", String.valueOf(0), String.valueOf(userId)).find(Borrow.class);
+                if(borrows.size() == 0){
+                    Intent intent = new Intent(BookInfoActivity.this, BorrowActivity.class);
+                    intent.putExtra("bookId",book.getId());
+                    intent.putExtra("userId",userId);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(BookInfoActivity.this,"您还未归还此书",Toast.LENGTH_SHORT).show();
+                }
             }
         };
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

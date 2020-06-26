@@ -9,9 +9,9 @@ public class Borrow extends DataSupport {
     private int bookId;
     private int userId;
     private boolean isReturnBack;
-    private int promiseDays;
-    private Date borrowDay;
-    private Date returnDay;
+    private String promiseDay;
+    private String borrowDay;
+    private String returnDay;
 
     public int getId() {
         return id;
@@ -45,27 +45,27 @@ public class Borrow extends DataSupport {
         isReturnBack = returnBack;
     }
 
-    public int getPromiseDays() {
-        return promiseDays;
+    public String getPromiseDay() {
+        return promiseDay;
     }
 
-    public void setPromiseDays(int promiseDays) {
-        this.promiseDays = promiseDays;
+    public void setPromiseDay(String promiseDays) {
+        this.promiseDay = promiseDay;
     }
 
-    public Date getBorrowDay() {
+    public String getBorrowDay() {
         return borrowDay;
     }
 
-    public void setBorrowDay(Date borrowDay) {
+    public void setBorrowDay(String borrowDay) {
         this.borrowDay = borrowDay;
     }
 
-    public Date getReturnDay() {
+    public String getReturnDay() {
         return returnDay;
     }
 
-    public void setReturnDay(Date returnDay) {
+    public void setReturnDay(String returnDay) {
         this.returnDay = returnDay;
     }
 
@@ -76,7 +76,7 @@ public class Borrow extends DataSupport {
                 ", bookId=" + bookId +
                 ", userId=" + userId +
                 ", isReturnBack=" + isReturnBack +
-                ", promiseDays=" + promiseDays +
+                ", promiseDays=" + promiseDay +
                 ", borrowDay=" + borrowDay +
                 ", returnDay=" + returnDay +
                 '}';

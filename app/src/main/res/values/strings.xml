@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Library</string>
+    <string name="sharedPreferenceName">loginData</string>
+    <string name="loginStatusKey">signInUserId</string>
 </resources>
