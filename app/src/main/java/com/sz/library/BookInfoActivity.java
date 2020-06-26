@@ -5,10 +5,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +22,6 @@ import com.sz.library.pojo.Borrow;
 import com.sz.library.utils.SystemUtils;
 
 import org.litepal.crud.DataSupport;
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -27,9 +29,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class BookInfoActivity extends AppCompatActivity {
-    @BindView(R.id.abi_tool_bar)
+    @BindView(R.id.shared_book_name)
     Toolbar toolbar;
-    @BindView(R.id.abi_background)
+    @BindView(R.id.shared_book_background)
     ImageView background;
     @BindView(R.id.abi_author)
     TextView author;
@@ -56,6 +58,17 @@ public class BookInfoActivity extends AppCompatActivity {
     private void init() {
         initToolBar(book.getName());
         initComponent();
+        initTransition();
+    }
+
+    private void initTransition() {
+        View wrap = findViewById(R.id.abi_coordinator_layout);
+        wrap.post(()->{
+            Animator circularReveal = ViewAnimationUtils.createCircularReveal(wrap, wrap.getWidth()/2, wrap.getWidth()/2+100, 500, 7000);
+            circularReveal.setDuration(2000);
+            circularReveal.setInterpolator(new AccelerateDecelerateInterpolator());
+            circularReveal.start();
+        });
     }
 
     private void initToolBar(String bookName) {

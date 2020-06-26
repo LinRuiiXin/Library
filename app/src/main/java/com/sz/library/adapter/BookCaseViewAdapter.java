@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.sz.library.BookInfoActivity;
@@ -19,7 +21,7 @@ import java.util.List;
 
 public class BookCaseViewAdapter extends PagerAdapter {
     private List<Book> data;
-    private Context activity;
+    private Activity activity;
     private LayoutInflater inflater;
 
     public BookCaseViewAdapter(Activity activity, List<Book> list) {
@@ -40,8 +42,8 @@ public class BookCaseViewAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = inflater.inflate(R.layout.book_item, container, false);
-        ImageView imageView = view.findViewById(R.id.bi_im);
-        TextView textView = view.findViewById(R.id.bi_book_name);
+        ImageView imageView = view.findViewById(R.id.shared_book_background);
+        TextView textView = view.findViewById(R.id.shared_book_name);
         Book book = data.get(position);
         imageView.setImageResource(activity.getResources().getIdentifier("book"+book.getId(),"drawable",activity.getPackageName()));
         textView.setText(book.getName());
@@ -54,7 +56,9 @@ public class BookCaseViewAdapter extends PagerAdapter {
         view.setOnClickListener(v -> {
             Intent intent = new Intent(activity, BookInfoActivity.class);
             intent.putExtra("book",book);
-            activity.startActivity(intent);
+            View image = view.findViewById(R.id.shared_book_background);
+            Pair<View, String> p1 = new Pair<>(image, image.getTransitionName());
+            activity.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity,p1).toBundle());
         });
     }
 

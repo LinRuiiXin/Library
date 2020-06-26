@@ -17,14 +17,14 @@
             android:layout_centerHorizontal="true"
             android:padding="0dp"
             android:scaleType="centerCrop"
-            android:id="@+id/bi_im"
+            android:id="@+id/shared_book_background"
             />
 
         <TextView
-            android:id="@+id/bi_book_name"
+            android:id="@+id/shared_book_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bi_im"
+            android:layout_below="@id/shared_book_background"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_marginTop="25dp"
