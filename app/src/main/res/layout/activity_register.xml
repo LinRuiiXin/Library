@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
     <EditText
-        android:id="@+id/login_name"
+        android:id="@+id/reg_name"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
@@ -15,51 +15,37 @@
         android:hint="请输入用户名"
         android:paddingLeft="20dp"/>
     <EditText
-        android:id="@+id/login_psw"
+        android:id="@+id/reg_psw"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_below="@id/login_name"
+        android:layout_below="@id/reg_name"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shadow"
         android:hint="请输入密码"
         android:paddingLeft="20dp"
         android:password="true"/>
-    <LinearLayout
-        android:id="@+id/login_other"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/login_psw"
+    <EditText
+        android:id="@+id/reg_psw_two"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/reg_psw"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:paddingTop="10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/tv_reg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="立即注册"
-            android:textSize="14sp"/>
-        <TextView
-            android:id="@+id/tv_change_psw"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="更改密码"
-            android:textSize="14sp" />
-    </LinearLayout>
+        android:background="@drawable/shadow"
+        android:hint="请再次输入密码"
+        android:paddingLeft="20dp"
+        android:password="true"/>
     <Button
-        android:id="@+id/login_commit"
+        android:id="@+id/reg_commit"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/login_other"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/reg_psw_two"
+        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:background="@drawable/file_back_bule"
-        android:text="登录"
+        android:text="注册"
         android:textSize="20dp"/>
 
 </RelativeLayout>
