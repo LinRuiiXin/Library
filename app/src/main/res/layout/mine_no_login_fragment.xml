@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:id="@+id/nlm_btn"
             android:text="去登录"
             android:textColor="#2196F3"
             android:layout_marginTop="10dp"

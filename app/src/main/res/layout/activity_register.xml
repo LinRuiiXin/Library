@@ -4,47 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".RegisterActivity">
     <EditText
         android:id="@+id/reg_name"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:background="@drawable/shadow"
+        android:textColor="#000"
         android:hint="请输入用户名"
         android:paddingLeft="20dp"/>
     <EditText
         android:id="@+id/reg_psw"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_below="@id/reg_name"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shadow"
         android:hint="请输入密码"
         android:paddingLeft="20dp"
+        android:textColor="#000"
         android:password="true"/>
     <EditText
         android:id="@+id/reg_psw_two"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_below="@id/reg_psw"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shadow"
         android:hint="请再次输入密码"
         android:paddingLeft="20dp"
+        android:textColor="#000"
         android:password="true"/>
     <Button
         android:id="@+id/reg_commit"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/reg_psw_two"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
-        android:background="@drawable/file_back_bule"
+        android:background="@drawable/blue"
         android:text="注册"
         android:textSize="20dp"/>
 

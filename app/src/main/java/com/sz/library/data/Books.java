@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Books {
-    public static List<Book> data;
+    private static List<Book> data;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static List<Book> getData(Context context) {

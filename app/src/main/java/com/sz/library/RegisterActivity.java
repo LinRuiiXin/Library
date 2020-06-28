@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.sz.library.pojo.User;
 import com.sz.library.utils.MD5Utils;
+import com.sz.library.utils.SystemUtils;
 
 import org.litepal.crud.DataSupport;
 
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        SystemUtils.setStatusBarFullTransparent(this);
         init();
     }
 

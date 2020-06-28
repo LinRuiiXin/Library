@@ -4,26 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".LoginActivity">
     <EditText
         android:id="@+id/login_name"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:background="@drawable/shadow"
         android:hint="请输入用户名"
+        android:textColor="#000"
         android:paddingLeft="20dp"/>
     <EditText
         android:id="@+id/login_psw"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_below="@id/login_name"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shadow"
         android:hint="请输入密码"
         android:paddingLeft="20dp"
+        android:textColor="#000"
         android:password="true"/>
     <LinearLayout
         android:id="@+id/login_other"
@@ -53,12 +56,13 @@
     <Button
         android:id="@+id/login_commit"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/login_other"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:background="@drawable/file_back_bule"
+        android:background="@drawable/blue"
+        android:clickable="true"
         android:text="登录"
         android:textSize="20dp"/>
 

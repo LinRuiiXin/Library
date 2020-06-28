@@ -54,7 +54,7 @@
         android:layout_below="@id/change_psw_two"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
-        android:background="@drawable/file_back_bule"
+        android:background="@drawable/blue"
         android:text="修改"
         android:textSize="20dp"/>
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.sz.library.pojo.User;
 import com.sz.library.utils.MD5Utils;
+import com.sz.library.utils.SystemUtils;
 
 import org.litepal.crud.DataSupport;
 import org.w3c.dom.Text;
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SystemUtils.setStatusBarFullTransparent(this);
         init();
     }
 
@@ -95,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences loginData = getSharedPreferences("loginData", MODE_PRIVATE);
         SharedPreferences.Editor edit = loginData.edit();
         edit.putInt("signInUserId",user.getId());
+        edit.commit();
     }
 
 

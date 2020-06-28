@@ -2,7 +2,6 @@ package com.sz.library.pojo;
 
 import org.litepal.crud.DataSupport;
 
-import java.util.Date;
 
 public class Borrow extends DataSupport {
     private int id;
@@ -49,7 +48,7 @@ public class Borrow extends DataSupport {
         return promiseDay;
     }
 
-    public void setPromiseDay(String promiseDays) {
+    public void setPromiseDay(String promiseDay) {
         this.promiseDay = promiseDay;
     }
 
@@ -76,7 +75,7 @@ public class Borrow extends DataSupport {
                 ", bookId=" + bookId +
                 ", userId=" + userId +
                 ", isReturnBack=" + isReturnBack +
-                ", promiseDays=" + promiseDay +
+                ", promiseDay=" + promiseDay +
                 ", borrowDay=" + borrowDay +
                 ", returnDay=" + returnDay +
                 '}';

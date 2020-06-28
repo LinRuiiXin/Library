@@ -10,13 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BorrowActivity"/>
+        <service
+            android:name=".service.BookOverTimeService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".BorrowActivity" />
         <activity
             android:name=".BookInfoActivity"
-            android:theme="@style/Theme">
-
-        </activity>
+            android:theme="@style/Theme"></activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

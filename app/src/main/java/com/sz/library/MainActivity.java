@@ -16,8 +16,12 @@ import com.sz.library.adapter.MainViewPagerAdapter;
 import com.sz.library.fragment.BookCaseFragment;
 import com.sz.library.fragment.BorrowFragment;
 import com.sz.library.fragment.MineFragment;
+import com.sz.library.fragment.noLogin.NoLoginBorrowFragment;
+import com.sz.library.fragment.noLogin.NoLoginMineFragment;
+import com.sz.library.pojo.User;
 import com.sz.library.scroller.ViewPagerScroller;
 import com.sz.library.utils.SystemUtils;
+import com.sz.library.utils.UserUtils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -27,12 +31,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    private static List<Fragment> fragments = new ArrayList<>();
+    /*private static List<Fragment> fragments = new ArrayList<>();
     static {
         fragments.add(new BookCaseFragment());
         fragments.add(new BorrowFragment());
         fragments.add(new MineFragment());
-    }
+    }*/
+
+    private final List<Fragment> fragments = new ArrayList<>(3);
     private ViewPagerScroller viewPagerScroller;
     @BindView(R.id.top_bar_item_wrap)
     LinearLayout wrap;
@@ -54,7 +60,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SystemUtils.setStatusBarFullTransparent(this);
         ButterKnife.bind(this);
+        checkLoginStatus();
         initView();
+    }
+
+    //判断登录状态，显示不同页面
+    private void checkLoginStatus() {
+        if(UserUtils.hasUserLogin(this)){
+            fragments.add(new BookCaseFragment());
+            fragments.add(new BorrowFragment());
+            fragments.add(new MineFragment());
+        }else{
+            fragments.add(new BookCaseFragment());
+            fragments.add(new NoLoginBorrowFragment());
+            fragments.add(new NoLoginMineFragment());
+        }
     }
 
     private void initView() {

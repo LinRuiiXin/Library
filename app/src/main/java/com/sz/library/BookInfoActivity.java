@@ -65,8 +65,8 @@ public class BookInfoActivity extends AppCompatActivity {
     private void initTransition() {
         View wrap = findViewById(R.id.abi_coordinator_layout);
         wrap.post(()->{
-            Animator circularReveal = ViewAnimationUtils.createCircularReveal(wrap, wrap.getWidth()/2, wrap.getWidth()/2+100, 500, 7000);
-            circularReveal.setDuration(2000);
+            Animator circularReveal = ViewAnimationUtils.createCircularReveal(wrap, wrap.getWidth()/2, wrap.getWidth()/2+100, 200, 4000);
+            circularReveal.setDuration(1000);
             circularReveal.setInterpolator(new AccelerateDecelerateInterpolator());
             circularReveal.start();
         });
@@ -90,9 +90,9 @@ public class BookInfoActivity extends AppCompatActivity {
 
     private View.OnClickListener borrowListener() {
         return v -> {
-            int userId = UserUtils.getLoginId(this);
+            int userId = UserUtils.getLoginId(this,true);
             if(userId != -1){
-                List<Borrow> borrows = DataSupport.where("isReturnBack = ? and userId = ?", String.valueOf(0), String.valueOf(userId)).find(Borrow.class);
+                List<Borrow> borrows = DataSupport.where("bookId = ? and isReturnBack = ? and userId = ?",String.valueOf(book.getId()),String.valueOf(0), String.valueOf(userId)).find(Borrow.class);
                 if(borrows.size() == 0){
                     Intent intent = new Intent(BookInfoActivity.this, BorrowActivity.class);
                     intent.putExtra("bookId",book.getId());
