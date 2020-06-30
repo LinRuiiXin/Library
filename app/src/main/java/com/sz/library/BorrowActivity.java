@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sz.library.pojo.Borrow;
+import com.sz.library.pojo.User;
 import com.sz.library.utils.SystemUtils;
 
 import java.text.SimpleDateFormat;
@@ -177,4 +178,12 @@ public class BorrowActivity extends AppCompatActivity {
 
     }
 
+    public View.OnClickListener getListener(){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        };
+    }
 }
