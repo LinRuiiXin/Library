@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //更改密码
                 Intent intent = new Intent(LoginActivity.this,ChangePswActivity.class);
+                intent.putExtra("pageData",0);
                 startActivity(intent);
             }
         });
@@ -101,13 +102,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void saveLoginStatus(boolean status, String userName) {
-        SharedPreferences sp = getSharedPreferences("loginData",MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean("isLogin",status);
-        editor.putString("userName",userName);
-        editor.commit();
-    }
 
     private String readPsw(String userName) {
         List<User> users = DataSupport.where("name=?",userName).find(User.class);

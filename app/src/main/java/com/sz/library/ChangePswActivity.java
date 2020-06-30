@@ -3,6 +3,7 @@ package com.sz.library;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -67,12 +68,26 @@ public class ChangePswActivity extends AppCompatActivity {
                 }else {
                     Toast.makeText(ChangePswActivity.this, "更改密码成功", Toast.LENGTH_SHORT).show();
                     changePsw(MD5Utils.md5(newPsw),userName);
-                    Intent intent = new Intent(ChangePswActivity.this,LoginActivity.class);
-                    startActivity(intent);
-                    ChangePswActivity.this.finish();
+                    Intent PageData = getIntent();
+                    if (PageData.getStringExtra("pageData").equals(1)){
+                        Intent intent = new Intent(ChangePswActivity.this,AccountManagementActivity.class);
+                        startActivity(intent);
+                        ChangePswActivity.this.finish();
+                    }else{
+                        Intent intent = new Intent(ChangePswActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        ChangePswActivity.this.finish();
+                    }
+
                 }
             }
         });
+    }
+
+    private Integer getPageId() {
+        SharedPreferences pageData = getSharedPreferences("pageData",MODE_PRIVATE);
+        Integer pageId = pageData.getInt("pageId",0);
+        return pageId;
     }
 
     private void changePsw(String newPsw, String userName) {
