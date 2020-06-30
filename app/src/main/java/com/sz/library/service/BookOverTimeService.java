@@ -33,7 +33,7 @@ public class BookOverTimeService extends Service {
     private List<Book> data;
     private Context context;
     private final SimpleDateFormat dateFormatter;
-
+    private int count = 0;
     public BookOverTimeService() {
         dateFormatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     }
@@ -65,10 +65,10 @@ public class BookOverTimeService extends Service {
                             .setPriority(NotificationCompat.PRIORITY_MAX)
                             .setDefaults(Notification.DEFAULT_ALL)
                             .build();
-                    notificationManager.notify(1,notification);
+                    notificationManager.notify(100,notification);
                 }
             }
-        },0,18000000l);
+        },0,3600000l);
         return super.onStartCommand(intent, flags, startId);
     }
 

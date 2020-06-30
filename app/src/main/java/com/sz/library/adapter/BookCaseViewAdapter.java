@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Consumer;
 import androidx.core.util.Pair;
 import androidx.viewpager.widget.PagerAdapter;
 
