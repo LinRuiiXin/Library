@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:background="@drawable/shadow"
+        android:textColor="#3E3C3C"
         android:hint="请输入用户名"
         android:paddingLeft="20dp"/>
     <EditText
@@ -22,6 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/shadow"
+        android:textColor="#3E3C3C"
         android:hint="请输入旧密码"
         android:paddingLeft="20dp"/>
     <EditText
@@ -32,6 +34,7 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/shadow"
+        android:textColor="#3E3C3C"
         android:hint="请输入新密码"
         android:paddingLeft="20dp"
         android:password="true"/>
@@ -44,6 +47,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/shadow"
         android:hint="请再次输入新密码"
+        android:textColor="#3E3C3C"
         android:paddingLeft="20dp"
         android:password="true"/>
     <Button
