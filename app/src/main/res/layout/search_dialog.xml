@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bod_dialog_shape"
+    android:paddingLeft="20dp"
+    android:paddingTop="10dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/sd_touch_able"
+        android:layout_width="60dp"
+        android:layout_height="4dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/touch_able_shape" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sd_line2"
+        android:layout_below="@+id/sd_touch_able"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/sd_search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/search_edit_text_shape"
+            android:hint="搜索书名"
+            android:paddingLeft="40dp" />
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@+id/sd_search"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/icon_search"
+            />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sd_line2"
+        android:layout_marginTop="20dp"
+        />
+</RelativeLayout>

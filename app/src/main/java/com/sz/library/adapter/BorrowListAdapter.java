@@ -6,12 +6,10 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -19,7 +17,6 @@ import com.sz.library.R;
 import com.sz.library.data.Books;
 import com.sz.library.pojo.Book;
 import com.sz.library.pojo.Borrow;
-import com.sz.library.utils.SystemUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
