@@ -30,7 +30,7 @@ public class Books {
                 });
             }
         }
-        return data;
+        return new ArrayList<>(data);
     }
 
     private static String getJsonContent(String fileName, Context context) {

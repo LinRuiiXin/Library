@@ -89,9 +89,12 @@ public class BorrowListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return borrows.size();
+        return borrows == null ? 0 : borrows.size();
     }
 
+    public void serData(List<Borrow> borrows){
+        this.borrows = borrows;
+    }
 
     class ViewHolder extends RecyclerView.ViewHolder{
 

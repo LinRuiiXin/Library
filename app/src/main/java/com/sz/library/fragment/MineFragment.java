@@ -3,7 +3,6 @@ package com.sz.library.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -172,6 +171,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
             case R.id.rl_logout:
                 Intent intent1 = new Intent(getContext(),LoginActivity.class);
                 startActivity(intent1);
+                UserUtils.clearLoginStatus(activity);
                 ActivityUtils.finishAllActivitiesExceptNewest();
                 break;
         }

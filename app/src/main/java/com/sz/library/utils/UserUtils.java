@@ -72,7 +72,15 @@ public class UserUtils {
         });
         dialog.show();
     }
-
+    /*
+    * 清除登录状态
+    * */
+    public static void clearLoginStatus(Context context){
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.clear();
+        edit.apply();
+    }
 
     private static SharedPreferences getSharedPreferences(Context context) {
         String string = context.getString(R.string.sharedPreferenceName);

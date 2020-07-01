@@ -29,6 +29,9 @@
             android:layout_height="40dp"
             android:background="@drawable/search_edit_text_shape"
             android:hint="搜索书名"
+            android:maxLength="15"
+            android:textColor="#8a8a8a"
+            android:maxLines="1"
             android:paddingLeft="40dp" />
 
         <TextView
@@ -43,6 +46,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/sd_recycler_view"
         android:layout_below="@+id/sd_line2"
         android:layout_marginTop="20dp"
         />

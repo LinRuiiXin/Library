@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    app:cardElevation="8dp"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:id="@+id/sri_click_able"
+        android:background="@drawable/button_ripple"
+        android:clickable="true"
+        >
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/sri_book_preview"
+            android:src="@drawable/portrait"
+            app:riv_oval="true"
+            android:scaleType="centerCrop"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sri_book_name"
+            android:layout_toRightOf="@+id/sri_book_preview"
+            android:text="神秘岛"
+            android:layout_marginLeft="13dp"
+            android:textSize="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sri_author"
+            android:layout_alignLeft="@id/sri_book_name"
+            android:layout_alignBottom="@id/sri_book_preview"
+            android:text="我不知道"
+            android:textSize="8dp"
+            />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
