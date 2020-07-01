@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.ContactsContract;
 import android.transition.ChangeBounds;
 import android.view.LayoutInflater;
@@ -33,6 +35,7 @@ import com.sz.library.R;
 import com.sz.library.SearchActivity;
 import com.sz.library.adapter.BorrowListAdapter;
 import com.sz.library.pojo.Borrow;
+import com.sz.library.pojo.User;
 import com.sz.library.utils.UserUtils;
 
 import org.litepal.crud.DataSupport;
@@ -86,6 +89,13 @@ public class BorrowFragment extends Fragment {
         buttonA.setOnClickListener(v -> {
         });
         buttonB.setOnClickListener(v -> {
+            String userId = String.valueOf(UserUtils.getUser(getContext()).getId());
+            List<Borrow> borrows = DataSupport.where("userId = ? and isReturnBack = ?",userId,"0").find(Borrow.class);
+            for (Borrow borrow:borrows){
+                borrow.setReturnDay(dateFormatter.format(new Date()));
+                borrow.setReturnBack(true);
+                borrow.save();
+            }
         });
         recyclerView.setAdapter(new BorrowListAdapter(activity, borrows,(view,borrow) -> {
             if(!borrow.isReturnBack()){
@@ -135,10 +145,12 @@ public class BorrowFragment extends Fragment {
         return view;
     }
 
-    private void upDateUI() {
+    private void upDateUI() {//点击归还后的样式更改
         TextView status = choiceView.findViewById(R.id.bi_status);
         status.setTextColor(Color.parseColor("#000000"));
         status.setText("已归还");
         dialog.dismiss();
     }
+
+
 }

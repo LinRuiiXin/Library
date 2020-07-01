@@ -44,4 +44,5 @@ dependencies {
     implementation 'de.gerdi-project:GSON:6.0.6'
     implementation 'com.android.support:design:28.0.0-rc02'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.blankj:utilcodex:1.29.0'
 }

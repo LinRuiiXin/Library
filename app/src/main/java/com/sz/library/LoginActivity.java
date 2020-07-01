@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +15,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.AppUtils;
 import com.sz.library.pojo.User;
 import com.sz.library.utils.MD5Utils;
 import com.sz.library.utils.SystemUtils;
 
 import org.litepal.crud.DataSupport;
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -56,9 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //更改密码
-                Intent intent = new Intent(LoginActivity.this,ChangePswActivity.class);
-                intent.putExtra("pageData",0);
-                startActivity(intent);
+                ActivityUtils.startActivity(ChangePswActivity.class);
             }
         });
         btn_login_commit.setOnClickListener(new View.OnClickListener() {
@@ -127,5 +128,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 2000){
+            Toast.makeText(this, "再点击一次返回键退出", Toast.LENGTH_SHORT).show();
+            firstTime = secondTime;
+        }else {
+            AppUtils.exitApp();
+        }
+    }
+
+    private long firstTime;
 }
 

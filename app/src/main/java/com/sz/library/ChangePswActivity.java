@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sz.library.fragment.BorrowFragment;
 import com.sz.library.pojo.User;
 import com.sz.library.utils.MD5Utils;
 
@@ -68,17 +69,7 @@ public class ChangePswActivity extends AppCompatActivity {
                 }else {
                     Toast.makeText(ChangePswActivity.this, "更改密码成功", Toast.LENGTH_SHORT).show();
                     changePsw(MD5Utils.md5(newPsw),userName);
-                    Intent PageData = getIntent();
-                    if (PageData.getStringExtra("pageData").equals(1)){
-                        Intent intent = new Intent(ChangePswActivity.this,AccountManagementActivity.class);
-                        startActivity(intent);
-                        ChangePswActivity.this.finish();
-                    }else{
-                        Intent intent = new Intent(ChangePswActivity.this,LoginActivity.class);
-                        startActivity(intent);
-                        ChangePswActivity.this.finish();
-                    }
-
+                    ChangePswActivity.this.finish();
                 }
             }
         });

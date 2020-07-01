@@ -21,12 +21,11 @@
         <activity
             android:name=".BookInfoActivity"
             android:theme="@style/Theme" />
-        <activity android:name=".AccountManagementActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".ChangePswActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
